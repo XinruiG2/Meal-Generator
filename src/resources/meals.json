@@ -1,0 +1,14 @@
+{
+    "meals": [
+        {
+            "name": "Tomato and eggs",
+            "ingredients": ["Tomatos", "Eggs", "Scallions", "Garlic", "Salt"],
+            "instructions": ["..."]
+        }, 
+        {
+            "name": "Tamago sandwich",
+            "ingredients": ["Bread", "Eggs", "Mayonnaise", "Pepper", "Salt"],
+            "instructions": ["..."]
+        }
+    ]
+}
