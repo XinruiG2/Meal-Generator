@@ -18,7 +18,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   const navigateToMain = () => {
-    navigate("/");
+    navigate("/home");
   }
 
   return (

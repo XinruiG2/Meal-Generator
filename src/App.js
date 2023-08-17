@@ -7,11 +7,11 @@ function App() {
     <div>
       <Routes>
         <Route 
-          path="/landing-page" 
+          path="/" 
           element={<LandingPage></LandingPage>}>
         </Route>
         <Route 
-          path="/" 
+          path="/home" 
           element={<Home></Home>}>
         </Route>
       </Routes>

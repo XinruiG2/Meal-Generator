@@ -10,18 +10,39 @@ const Container = styled.div`
     position: relative;
     overflow: hidden;
     position: relative;
-    background-color: rgb(235, 235, 235);
+`;
+
+const LeftBlock = styled.div`
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 33vw;
+    background-color: rgb(105,141,166);
+`;
+
+const RightBlock = styled.div`
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 67vw;
+    background-color: rgb(66, 69, 71);
 `;
 
 const Home = () => {
 
-  const [selectedMeal, setSelectedMeal] = useState(null);
+  const [selectedMeal, setSelectedMeal] = useState([]);
 
   return (
     <Container>
-        <Header></Header>
+      <LeftBlock></LeftBlock>
+      <RightBlock></RightBlock>
+      <MainContainer setMeal={setSelectedMeal}></MainContainer>
+      <MealCards selectedMeal={selectedMeal}></MealCards>
+        {/* <Header></Header>
         <MainContainer setMeal={setSelectedMeal}></MainContainer>
-        <MealCards selectedMeal={selectedMeal}></MealCards>
+        <MealCards selectedMeal={selectedMeal}></MealCards> */}
     </Container>
   )
 }
