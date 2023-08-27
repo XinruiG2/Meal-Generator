@@ -1,35 +1,44 @@
 import React from 'react'
-import styled from 'styled-components'
-import mealData from '../../resources/meals.json'
+import { styled, keyframes } from 'styled-components'
+import { Menu } from '@mui/icons-material';
+import NavBar from './NavBar';
 
-const Container = styled.div`
+const fadeIn = keyframes`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`;
+
+const FadeInContainer = styled.div`
+    opacity: 0;
+    animation: fadeIn 0.55s forwards;
+`;
+
+const Container = styled(FadeInContainer)`
+    animation: ${fadeIn} 0.5s forwards;
     position: absolute;
-    width: 30vw;
-    height: 63vh;
-    border-radius: 20px;
-    top: 23vh;   
-    left: 15vw;
-    background-color: rgb(245, 245, 245, 0.6);
-    box-sizing: border-box;
-    padding: 30px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    backdrop-filter: blur(5px);
-    border: 2px solid rgb(245, 245, 245, 0.35);
+    width: 33vw;
+    height: 100vh;
+    top: 0;   
+    left: 0;
 `;
 
 const ContentWrapper = styled.div`
-    width: 100%;
+    width: 33vw;
     height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
     align-items: start;
+    box-sizing: border-box;
+    padding: 45px 35px;
 `;
 
 const ChooseButton = styled.button`
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(245, 245, 245, 0.75);
     border: none;
     font-weight: 700;
     color: black;
@@ -37,7 +46,7 @@ const ChooseButton = styled.button`
     width: 100%;
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    letter-spacing: 0.75rem;
+    letter-spacing: 0.65rem;
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -45,21 +54,53 @@ const ChooseButton = styled.button`
     }
 `;
 
-const MainContainer = ({ setMeal }) => {
+const RecipeDescriptions = styled.div`
+    color: rgb(245, 245, 245);
+    font-size: 1.3rem;
+    letter-spacing: 0.05rem;
+    font-family: 'Playfair Display', sans-serif;
+    line-height: 1.3;
+    text-transform: uppercase;
+`;
 
-    const meals = mealData.meals;
+const Banner = styled.div`
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+`;
 
-    const selectMeal = () => {
-        const randIndex = Math.floor(Math.random() * meals.length);
-        console.log(randIndex);
-        // setMeal([meals[randIndex]]);
-        setMeal(meals);
+const MenuIcon = styled(Menu)`
+    fill: rgb(245, 245, 245) !important;
+    margin-left: -1.4px;
+    font-size: 1.4rem !important;
+    transition: all 0.3s ease-in-out !important;
+
+    &:hover {
+        fill: rgb(55, 55, 55) !important;
+        cursor: pointer;
     }
+`;
 
+const OpenMe = styled.div`
+    color: rgb(245, 245, 245);
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+    font-family: 'Playfair Display', sans-serif;
+    line-height: 1.3;
+    font-style: italic;
+`;
+
+const MainContainer = ({ setMeal }) => {
   return (
     <Container>
         <ContentWrapper>
-            <ChooseButton onClick={selectMeal}>GENERATE</ChooseButton>
+            {/* <ChooseButton onClick={selectMeal}>GENERATE</ChooseButton> */}
+            <RecipeDescriptions>
+                A collection of<br /> 
+                recipes dear to me .
+            </RecipeDescriptions>
+            <NavBar setMeals={setMeal}></NavBar>
         </ContentWrapper>
     </Container>
   )

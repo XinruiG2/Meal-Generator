@@ -2,48 +2,20 @@
     "meals": [
         {
             "name": "Tomato and eggs",
-            "ingredients": ["Tomatos", "Eggs", "Scallions", "Garlic", "Salt"],
-            "instructions": ["..."]
+            "ingredients": ["2 tomatoes", "3 eggs", "1 scallion", "3 garlic cloves", "salt"],
+            "instructions": ["Scramble your eggs until they are barely cooked. Then take them out of the pot and set aside.", 
+                            "Heat up some oil and put in your scallions and garlic. Fry until fragrant.",
+                            "Pour in your diced tomatoes and cook them until they are soft.",
+                            "Add your eggs back in and add in your desired amount of salt.",
+                            "Turn off your fire and garnish with more green onions."]
         }, 
         {
             "name": "Tamago sandwich",
-            "ingredients": ["Bread", "Eggs", "Mayonnaise", "Pepper", "Salt"],
-            "instructions": ["..."]
-        },
-        {
-            "name": "Tamago sandwich",
-            "ingredients": ["Bread", "Eggs", "Mayonnaise", "Pepper", "Salt"],
-            "instructions": ["..."]
-        },
-        {
-            "name": "Tamago sandwich",
-            "ingredients": ["Bread", "Eggs", "Mayonnaise", "Pepper", "Salt"],
-            "instructions": ["..."]
-        },
-        {
-            "name": "Tamago sandwich",
-            "ingredients": ["Bread", "Eggs", "Mayonnaise", "Pepper", "Salt"],
-            "instructions": ["..."]
-        },
-        {
-            "name": "Tamago sandwich",
-            "ingredients": ["Bread", "Eggs", "Mayonnaise", "Pepper", "Salt"],
-            "instructions": ["..."]
-        },
-        {
-            "name": "Tamago sandwich",
-            "ingredients": ["Bread", "Eggs", "Mayonnaise", "Pepper", "Salt"],
-            "instructions": ["..."]
-        },
-        {
-            "name": "Tamago sandwich",
-            "ingredients": ["Bread", "Eggs", "Mayonnaise", "Pepper", "Salt"],
-            "instructions": ["..."]
-        },
-        {
-            "name": "Tamago sandwich",
-            "ingredients": ["Bread", "Eggs", "Mayonnaise", "Pepper", "Salt"],
-            "instructions": ["..."]
+            "ingredients": ["2 bread slices", "2 eggs", "4 tbsp kewpie mayo", "a splash of milk", "black pepper", "salt"],
+            "instructions": ["Boil your eggs for 7 minutes. Place the cooked eggs in a bowl of cold water.",
+                            "Once cooled, peel the eggs and mash them with a fork in a separate bowl.",
+                            "Add your salt, pepper, milk, and mayonnaise to the eggs and mix well.",
+                            "Place the egg salad between two slices of toasted break and serve!"]
         }
     ]
 }

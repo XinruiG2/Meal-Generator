@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 import Header from '../components/HomePageComponents/Header';
 import MainContainer from '../components/HomePageComponents/MainContainer';
 import MealCards from '../components/HomePageComponents/MealCards';
@@ -18,7 +18,7 @@ const LeftBlock = styled.div`
     top: 0;
     height: 100vh;
     width: 33vw;
-    background-color: rgb(105,141,166);
+    background-color: rgb(51,92,129);
 `;
 
 const RightBlock = styled.div`
@@ -27,7 +27,7 @@ const RightBlock = styled.div`
     top: 0;
     height: 100vh;
     width: 67vw;
-    background-color: rgb(66, 69, 71);
+    background-color: rgb(58, 58, 58);
 `;
 
 const Home = () => {
