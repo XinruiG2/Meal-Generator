@@ -5,6 +5,7 @@ import MainText from '../components/LandingPageComponents/MainText';
 import Triangles from '../components/LandingPageComponents/Triangles';
 import Circle from '../components/LandingPageComponents/Circle';
 import { useNavigate } from 'react-router-dom';
+import mealData from '../resources/meals.json'
 
 const Container = styled.div`
     width: 100vw;
@@ -18,6 +19,8 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   const navigateToMain = () => {
+    const meals = mealData.meals;
+    localStorage.setItem("meals", JSON.stringify(meals));
     navigate("/home");
   }
 

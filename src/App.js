@@ -1,5 +1,6 @@
 import LandingPage from "./pages/LandingPage";
 import Home from "./pages/Home";
+import ProtectedRoute from "./pages/ProtectedRoute";
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -12,7 +13,11 @@ function App() {
         </Route>
         <Route 
           path="/home" 
-          element={<Home></Home>}>
+          element={
+            <ProtectedRoute>
+                <Home></Home>
+            </ProtectedRoute>
+          }>
         </Route>
       </Routes>
     </div>

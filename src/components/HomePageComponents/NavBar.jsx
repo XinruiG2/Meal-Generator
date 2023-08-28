@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { styled, keyframes } from 'styled-components'
 import { Menu, Minimize } from '@mui/icons-material';
 import GenerateMeals from './GenerateMeals';
+import AddRecipe from './AddRecipe';
+import mealData from '../../resources/meals.json'
 
 const Container = styled.div`
     margin-top: 12px;
@@ -66,6 +68,7 @@ const NavBar = ({ setMeals }) => {
 
     const [expanded, setExpanded] = useState(false);
     const [showGenerateMeals, setShowGenerateMeals] = useState(false);
+    const [showAddRecipe, setShowAddRecipe] = useState(false);
     
     const handleClick = () => {
         setExpanded(!expanded);
@@ -74,6 +77,13 @@ const NavBar = ({ setMeals }) => {
     const handleGenerateMealClick = () => {
         setExpanded(false);
         setShowGenerateMeals(true);
+        setShowAddRecipe(false);
+    }
+
+    const handleAddRecipeClick = () => {
+        setExpanded(false);
+        setShowGenerateMeals(false);
+        setShowAddRecipe(true);
     }
 
   return (
@@ -84,10 +94,11 @@ const NavBar = ({ setMeals }) => {
         </Banner>
         <MenuOptions isOpen={expanded}>
             <MenuOption onClick={handleGenerateMealClick}>Generate meals</MenuOption>
-            <MenuOption onClick={handleGenerateMealClick}>Add a recipe</MenuOption>
+            <MenuOption onClick={handleAddRecipeClick}>Add a recipe</MenuOption>
             <MenuOption onClick={handleGenerateMealClick}>Ingredient based</MenuOption>
         </MenuOptions>
         {showGenerateMeals && <GenerateMeals setMeals={setMeals}></GenerateMeals>}
+        {showAddRecipe && <AddRecipe></AddRecipe>}
     </Container>
   )
 }

@@ -7,7 +7,7 @@
                             "Heat up some oil and put in your scallions and garlic. Fry until fragrant.",
                             "Pour in your diced tomatoes and cook them until they are soft.",
                             "Add your eggs back in and add in your desired amount of salt.",
-                            "Turn off your fire and garnish with more green onions."]
+                            "Turn off your fire, garnish with more green onions, and then serve!."]
         }, 
         {
             "name": "Tamago sandwich",
@@ -15,7 +15,92 @@
             "instructions": ["Boil your eggs for 7 minutes. Place the cooked eggs in a bowl of cold water.",
                             "Once cooled, peel the eggs and mash them with a fork in a separate bowl.",
                             "Add your salt, pepper, milk, and mayonnaise to the eggs and mix well.",
-                            "Place the egg salad between two slices of toasted break and serve!"]
+                            "Place the egg salad between two slices of toasted break and then serve!"]
+        },
+        {
+            "name": "Braised pork belly",
+            "ingredients": ["pork belly", "green beans", "potatoes", "scallion", "ginger", "1 star anise",
+                            "cooking wine", "soy sauce", "dark soy sauce", "cooking wine", "sugar", "black pepper", "water"],
+            "instructions": ["Cut your pork belly, green beans, and potatoes as desired.",
+                            "Add your cut pork belly into a well-oiled pan and cook until the meat changes color and the oil is perfectly clear.",
+                            "Add in your star anise, ginger, and scallion and cook until fragrant.",
+                            "Season with cooking wine, soy sauce, dark soy sauce, black pepper, and sugar.",
+                            "Fill the pot with enough water to cover the pork.",
+                            "Add your potatoes and green beans, stir, and cover the pot with a lid.",
+                            "Cook until your potatoes are fork tender and then serve!."]
+        },
+        {
+            "name": "Mala xiang guo",
+            "ingredients": ["2 eggs", "wood ear mushroom", "tofu skin", "thinly sliced beef", "garlic", "scallion", "hot pot seasoning",
+                            "shiitake mushrooms", "fish cakes", "peppercorn powder", "bok choy", "cooking wine", "soy sauce", "black pepper", "sugar", "garlic powder"],
+            "instructions": ["First scramble your eggs until they are barely cooked. Take them out and set aside.",
+                            "Add your garlic and scallion into a well-oiled pot and cook until fragrant.",
+                            "Add in your beef and cook until it changes color.",
+                            "Add a splash of cooking wine and mix well.",
+                            "Pour in your wood ear mushrooms, fish cakes, tofu skin, and shiitake mushrooms.",
+                            "Mix until combined and cover with a lid until the shiitake mushrooms are cooked.",
+                            "Add your bok choy and season with pre-packaged hot pot seasoning, soy sauce, black pepper, garlic powder, and sugar.",
+                            "Mix well again and let it cook until the bok choy is fully cooked.",
+                            "Add back in your eggs along with some fresh garlic, cook for a bit more, and then serve!"]
+        },
+        {
+            "name": "Dry pot cauliflower",
+            "ingredients": ["pork belly", "cauliflower", "garlic", "scallion", "ginger", "pixian doubanjiang",
+                            "dried chili peppers", "sichuan peppercorns", "soy sauce", "black pepper", "sugar"],
+            "instructions": ["Cut your pork belly and cauliflower as desired.",
+                            "Set aside some minced garlic to add at the end.",
+                            "Add your cut pork belly into a well-oiled pan and cook until the meat changes color and the oil is perfectly clear.",
+                            "Add in your ginger, scallion, dried peppers, peppercorns, pixian doubanjiang, and part of the garlic and cook until fragrant.",
+                            "Pour in your cauliflower and mix well.",
+                            "Season with soy sauce, black pepper, and sugar.",
+                            "Once the cauliflower is cooked, add in the garlic that was set aside earlier.",
+                            "Cook for another minute and then serve!"]
+        },
+        {
+            "name": "Scallion chicken",
+            "ingredients": ["chicken breast", "scallions", "garlic", "oyster sauce", "soy sauce", "black pepper", "starch",
+                            "chili oil", "sesame oil", "cilantro", "cooking wine", "sugar"],
+            "instructions": ["Cube your chicken and mince your scallions and garlic.",
+                            "Season your raw chicken with oyster suace, soy sauce, black pepper, and starch. Mix well.",
+                            "Add your chicken into a well-oiled pan and cook for 4 minutes.",
+                            "Add in your garlic, chili oil, cooking wine, sugar, and white parts of the scallion and cook for 2 minutes.",
+                            "Add in your cilantro and cook for 1 more minute.",
+                            "Turn off your fire and drizzle in a bit of sesame oil. Then serve!"]
+        },
+        {
+            "name": "Yogurt bowl",
+            "ingredients": ["fruit of choice", "plain yogurt", "granola"],
+            "instructions": ["Wash and cut your fruit. I usually pick 2 of the following: bananas, mangos, berries, or grapes!",
+                            "Add a few spoons of yogurt to your bowl, assemble the fruit and granola on top, and enjoy :)."]
+        },
+        {
+            "name": "Blueberry smoothie",
+            "ingredients": ["1 banana", "2/3 c. blueberries", "3-4 spoons of yogurt", "1/4 c. milk or water"],
+            "instructions": ["Put all the ingredients into a blender and blend until well combined."]
+        },
+        {
+            "name": "Pork shogayaki",
+            "ingredients": ["thinly sliced pork", "onion", "ginger", "garlic", "soy sauce", "mirin", "cooking wine",
+                            "water"],
+            "instructions": ["Thinly slice part of the onion and set aside.",
+                            "Blend 1/4 of the unsliced onion with ginger, garlic, and soy sauce, mirin, cooking wine, and water in a 2:1:1:2 ratio.",
+                            "Put the pork slices into an oiled pan along with the sliced onions until the pork is fully brown.",
+                            "Add in your blended sauce and simmer for 5-7 minutes. Then plate up and serve!"]
+        },
+        {
+            "name": "Glazed salmon",
+            "ingredients": ["salmon", "honey", "chili oil", "garlic", "soy sauce", "hoisin sauce", "sesame oil", "water", "starch"],
+            "instructions": ["Mix the honey, chili oil, garlic, soy sauce, hoisin sauce, sesame oil, water, and starch in a bowl.",
+                            "Add your salmon to an oiled pan, skin-side down, and fry for 4 minutes.",
+                            "Then flip and cook for another 4 minutes until golden-brown.",
+                            "Add in your sauce and cook until thickened. Then plate up your salmon over some rice and serve!"]
+        },
+        {
+            "name": "Focaccia sandwich",
+            "ingredients": ["focaccia bread", "mortadella", "garlic aioli", "pesto", "arugula", "burrata", "salt", "black pepper"],
+            "instructions": ["Toss the arugular in some olive oil and lemon juice.",
+                            "Spread the garlic aioli and pesto on toasted slices of focaccia.",
+                            "Add on the mortadella, burrata, salt, pepper, arugula, and serve!"]
         }
     ]
 }

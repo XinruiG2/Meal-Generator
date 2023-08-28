@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Meal from './Meal';
 
 const Container = styled.div`
-    width: 43.6vw;
+    width: 45vw;
     height: 100vh;
     overflow-y: scroll;
     position: absolute;
@@ -15,7 +15,7 @@ const Container = styled.div`
     justify-content: flex-start;
     gap: 30px;
     box-sizing: border-box;
-    padding: 35px 0;
+    padding: 35px 0 40px 0;
 
     &::-webkit-scrollbar {
       width: 0px;

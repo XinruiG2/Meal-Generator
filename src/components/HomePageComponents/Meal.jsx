@@ -29,7 +29,7 @@ const RecipeName = styled.div`
     background: linear-gradient(to left, rgb(58, 58, 58) 50%, rgb(165, 165, 165, 0.3) 50%) right;
     background-size: 200% 100%;
     box-sizing: border-box;
-    padding: 0 12px 0 2px;
+    padding: 0 8px 0 3px;
 
     &:hover {
         cursor: pointer;
@@ -57,6 +57,7 @@ const RecipeExpanded = styled(RecipeAnimatedContainer)`
     height: auto;
     background-color: rgb(245, 245, 245, 0.85);
     margin-top: 15px;
+    margin-bottom: 10px;
     width: 100%;
     border-radius: 5px;
 `;

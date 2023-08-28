@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { styled } from 'styled-components'
-import mealData from '../../resources/meals.json'
 
 const Container = styled.div`
-    background-color: rgb(252, 251, 244, 0.7);
+    background-color: rgb(252, 251, 244, 0.75);
     border-radius: 4px;
     padding: 30px 10px 28px 10px;
     margin-right: 35px;
@@ -47,37 +46,60 @@ const GenerateMealsButton = styled.button`
 
     &:hover {
         cursor: pointer;
-        background-color: rgb(58, 58, 58, 0.55);
+        background-color: rgb(58, 58, 58, 0.85);
         color: rgb(245, 245, 245);
     }
+`;
+
+const ErrorMessage = styled.div`
+    color: #D21404;
+    font-size: 0.7rem;
+    padding: 2px 0 0 5px;
 `;
 
 const GenerateMeals = ({ setMeals }) => {
 
     const [numberOfMeals, setNumberOfMeals] = useState('');
     const [numberInvalid, setNumberInvalid] = useState(false);
-    const meals = mealData.meals;
+    const [showError, setShowError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleNumberChange = (event) => {
         const input = event.target.value;
         setNumberOfMeals(input);
-        setNumberInvalid(false);
     };
 
     const handleButtonClick = () => {
+        const meals = JSON.parse(localStorage.getItem("meals"));
+        console.log(meals);
         const intValue = parseInt(numberOfMeals);
 
-        if (numberOfMeals === '' && validInput(intValue)) {
+        if (numberOfMeals === '') {
             setNumberInvalid(true);
-        } else {
-            const randIndex = Math.floor(Math.random() * meals.length);
-            console.log(randIndex);
-            // setMeal([meals[randIndex]]);
-            if (intValue > meals.length) {
-                setMeals(meals);
-            } else {
-                setMeals(meals.slice(0, intValue));
-            }
+            setErrorMessage("This is a required field");
+            setShowError(true);
+        } else if (intValue > meals.length || intValue <= 0) {
+            setNumberInvalid(true);
+            setErrorMessage("Please enter an integer between 1-" + meals.length);
+            setShowError(true);
+        } else if (!validInput(intValue)) {
+            setNumberInvalid(true);
+            setErrorMessage("Please enter an integer value");
+            setShowError(true);
+        }
+        else {
+            setShowError(false);
+            setNumberInvalid(false);
+            const alreadyVisitedIndices = [];
+            const chosenMeals = [];
+            while (chosenMeals.length < intValue) {
+                const randIndex = Math.floor(Math.random() * meals.length);
+                if (!alreadyVisitedIndices.includes(randIndex)) {
+                  chosenMeals.push(meals[randIndex]);
+                  alreadyVisitedIndices.push(randIndex);
+                }
+              }
+            setMeals(chosenMeals);
         }
     }
 
@@ -92,6 +114,8 @@ const GenerateMeals = ({ setMeals }) => {
             value={numberOfMeals}
             onChange={handleNumberChange}
             isValid={numberInvalid} />
+        {showError && 
+            <ErrorMessage>{errorMessage}</ErrorMessage>}
         <ButtonWrapper>
             <GenerateMealsButton onClick={handleButtonClick}>
                 Generate
