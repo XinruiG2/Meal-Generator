@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { styled } from 'styled-components'
 
 const Container = styled.div`
-    background-color: rgb(252, 251, 244, 0.85);
+    background-color: rgb(252, 251, 244, 0.95);
     border-radius: 5px;
     padding: 30px 10px 28px 10px;
     margin-top: 14px;
@@ -37,15 +37,17 @@ const GenerateMealsButton = styled.button`
     font-size: 0.8rem;
     letter-spacing: 0.1rem;
     font-weight: 600;
-    padding: 6.5px 9px;
+    padding: 7px 12px;
     border-radius: 5px;
     border: 1px solid gray;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     color: rgb(40, 40, 40);
+    background: linear-gradient(to left, rgb(239,239,239) 50%, rgb(58, 58, 58, 0.85) 50%) right;
+    background-size: 200% 100%;
 
     &:hover {
         cursor: pointer;
-        background-color: rgb(58, 58, 58, 0.85);
+        background-position: left;
         color: rgb(245, 245, 245);
     }
 `;

@@ -79,14 +79,15 @@ const CreateButton = styled.button`
     padding: 6.5px 12px;
     border-radius: 5px;
     border: 1.5px solid #949494;
-    background-color: rgb(58, 58, 58, 0.25);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     color: black;
     font-weight: 600;
+    background: linear-gradient(to left, rgb(58, 58, 58, 0.25) 50%, rgb(58, 58, 58, 0.85) 50%) right;
+    background-size: 200% 100%;
 
     &:hover {
         cursor: pointer;
-        background-color: rgb(58, 58, 58, 0.85);
+        background-position: left;
         color: white;
     }
 `;

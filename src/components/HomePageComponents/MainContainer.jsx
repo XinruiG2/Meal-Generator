@@ -24,6 +24,12 @@ const Container = styled(FadeInContainer)`
     height: 100vh;
     top: 0;   
     left: 0;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+        background-color: transparent;
+    }
 `;
 
 const ContentWrapper = styled.div`

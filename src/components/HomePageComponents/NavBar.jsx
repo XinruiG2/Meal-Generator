@@ -64,6 +64,28 @@ const MenuOption = styled.div`
     }
 `;
 
+const AboutOption = styled.div`
+    color: rgb(245, 245, 245);
+    font-family: 'Domine';
+    letter-spacing: 0.075rem;
+    line-height: 1.8;
+    font-size: 0.73rem;
+`;
+
+const AboutWrapper = styled.div`
+    margin-top: 28px;
+`;
+
+const AboutHeader = styled.div`
+    font-style: bold;
+    font-weight: 700;
+    color: rgb(245, 245, 245);
+    font-family: 'Domine';
+    letter-spacing: 0.075rem;
+    font-size: 0.86rem;
+    margin-bottom: 10px;
+`;
+
 const NavBar = ({ setMeals }) => {
 
     const [expanded, setExpanded] = useState(false);
@@ -108,8 +130,32 @@ const NavBar = ({ setMeals }) => {
             <MenuOption onClick={handleIngredientBasedClick}>Ingredient based</MenuOption>
         </MenuOptions>
         {showGenerateMeals && <GenerateMeals setMeals={setMeals}></GenerateMeals>}
+        {showGenerateMeals && 
+        <AboutWrapper>
+            <AboutHeader>About 'Generate Meals':</AboutHeader>
+            <AboutOption>This selection allows you to randomly generate a designated
+                number of meals. The number entered cannot exceed the amount of recipes saved in our
+                recipe bank.
+            </AboutOption>
+        </AboutWrapper>}
         {showAddRecipe && <AddRecipe></AddRecipe>}
+        {showAddRecipe && 
+        <AboutWrapper>
+            <AboutHeader>About 'Add a Recipe':</AboutHeader>
+            <AboutOption>This selection allows you to save as many custom recipes as you want to local storage.
+                These recipes can be accessed and generated as long as incidents like clearing browsing history or 
+                deleting cookies do not occur. Happy recipe creating!
+            </AboutOption>
+        </AboutWrapper>}
         {showIngredientBased && <IngredientBased setMeals={setMeals}></IngredientBased>}
+        {showIngredientBased && 
+        <AboutWrapper>
+            <AboutHeader>About 'Ingredient Based':</AboutHeader>
+            <AboutOption>This selection allows you to search for recipes that contain at least one of the listed
+                ingredients. Please note that the search method does not account for plural vs singular so entering
+                egg will not generate recipes that contain the keyword 'eggs'.
+            </AboutOption>
+        </AboutWrapper>}
     </Container>
   )
 }
