@@ -3,7 +3,7 @@ import { styled, keyframes } from 'styled-components'
 import { Menu, Minimize } from '@mui/icons-material';
 import GenerateMeals from './GenerateMeals';
 import AddRecipe from './AddRecipe';
-import mealData from '../../resources/meals.json'
+import IngredientBased from './IngredientBased';
 
 const Container = styled.div`
     margin-top: 12px;
@@ -69,6 +69,7 @@ const NavBar = ({ setMeals }) => {
     const [expanded, setExpanded] = useState(false);
     const [showGenerateMeals, setShowGenerateMeals] = useState(false);
     const [showAddRecipe, setShowAddRecipe] = useState(false);
+    const [showIngredientBased, setShowIngredientBased] = useState(false);
     
     const handleClick = () => {
         setExpanded(!expanded);
@@ -78,12 +79,21 @@ const NavBar = ({ setMeals }) => {
         setExpanded(false);
         setShowGenerateMeals(true);
         setShowAddRecipe(false);
+        setShowIngredientBased(false);
     }
 
     const handleAddRecipeClick = () => {
         setExpanded(false);
         setShowGenerateMeals(false);
         setShowAddRecipe(true);
+        setShowIngredientBased(false);
+    }
+
+    const handleIngredientBasedClick = () => {
+        setExpanded(false);
+        setShowGenerateMeals(false);
+        setShowAddRecipe(false);
+        setShowIngredientBased(true);
     }
 
   return (
@@ -95,10 +105,11 @@ const NavBar = ({ setMeals }) => {
         <MenuOptions isOpen={expanded}>
             <MenuOption onClick={handleGenerateMealClick}>Generate meals</MenuOption>
             <MenuOption onClick={handleAddRecipeClick}>Add a recipe</MenuOption>
-            <MenuOption onClick={handleGenerateMealClick}>Ingredient based</MenuOption>
+            <MenuOption onClick={handleIngredientBasedClick}>Ingredient based</MenuOption>
         </MenuOptions>
         {showGenerateMeals && <GenerateMeals setMeals={setMeals}></GenerateMeals>}
         {showAddRecipe && <AddRecipe></AddRecipe>}
+        {showIngredientBased && <IngredientBased setMeals={setMeals}></IngredientBased>}
     </Container>
   )
 }

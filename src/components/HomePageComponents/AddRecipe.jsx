@@ -54,7 +54,7 @@ const UserTextArea = styled.textarea`
     border-radius: 3px;
     padding: 11px 10px; 
     border: none;
-    line-height: 1.25;
+    line-height: 1.4;
 
     &:focus {
         outline: none;
@@ -119,6 +119,9 @@ const AddRecipe = () => {
         const updatedMeals = [...meals, recipeObject];
         console.log(updatedMeals);
         localStorage.setItem("meals", JSON.stringify(updatedMeals));
+        setRecipeName('');
+        setIngredients('');
+        setSteps('');
     }
 
   return (

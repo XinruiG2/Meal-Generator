@@ -2,27 +2,26 @@ import React, { useState } from 'react'
 import { styled } from 'styled-components'
 
 const Container = styled.div`
-    background-color: rgb(252, 251, 244, 0.75);
-    border-radius: 4px;
+    background-color: rgb(252, 251, 244, 0.85);
+    border-radius: 5px;
     padding: 30px 10px 28px 10px;
-    margin-right: 35px;
     margin-top: 14px;
 `;
 
 const UserInput = styled.input`
     border: none;
-    width: 68%;
+    width: 65%;
     height: 33px;
     background: none;
     padding: 0;
-    font-size: 95%;
+    font-size: 94%;
     color: rgb(40, 40, 40);
     margin: 0 0 6px 5px;
-    letter-spacing: 0.02rem;
+    letter-spacing: 0.035rem;
     border-bottom: ${props =>
         props.isValid
         ? '1.5px solid #D21404'
-        : '1.5px solid rgb(110, 110, 110)'};
+        : '1.5px solid rgb(110, 110, 110, 0.75)'};
 
     &:focus {
         outline: none;
