@@ -33,7 +33,10 @@ const UserInput = styled.input`
     color: rgb(40, 40, 40);
     margin: 0 0 12px 7px;
     letter-spacing: 0.02rem;
-    border-bottom: 1.5px solid rgb(110, 110, 110, 0.75);
+    border-bottom: ${props =>
+        props.isValid
+        ? '1.5px solid #D21404'
+        : '1.5px solid rgb(110, 110, 110, 0.75)'};
 
     &:focus {
         outline: none;
@@ -53,7 +56,10 @@ const UserTextArea = styled.textarea`
     background-color: white;
     border-radius: 3px;
     padding: 11px 10px; 
-    border: none;
+    border: ${props =>
+        props.isValid
+        ? '1.5px solid #D21404'
+        : 'none'};
     line-height: 1.4;
 
     &:focus {
@@ -85,11 +91,21 @@ const CreateButton = styled.button`
     }
 `;
 
+const ErrorMessage = styled.div`
+    color: #D21404;
+    font-size: 0.7rem;
+    padding: 0 0 2px 5px;
+`;
+
 const AddRecipe = () => {
 
     const [recipeName, setRecipeName] = useState('');
+    const [showNameError, setShowNameError] = useState(false);
     const [ingredients, setIngredients] = useState('');
+    const [showIngredientsError, setShowIngredientsError] = useState(false);
     const [steps, setSteps] = useState('');
+    const [showStepsError, setShowStepsError] = useState(false);
+    const errorMessage = "This is a required field";
     let recipeObject;
 
     const handleNameChange = (event) => {
@@ -108,20 +124,34 @@ const AddRecipe = () => {
     };
 
     const handleButtonClick = () => {
-        const ingredientsAsArray = ingredients.split("\n");
-        const stepsAsArray = steps.split("\n");
-        recipeObject = {
-            name: recipeName,
-            ingredients: ingredientsAsArray,
-            instructions: stepsAsArray
+        if (recipeName === '') {
+            setShowNameError(true);
         }
-        const meals = JSON.parse(localStorage.getItem("meals"));
-        const updatedMeals = [...meals, recipeObject];
-        console.log(updatedMeals);
-        localStorage.setItem("meals", JSON.stringify(updatedMeals));
-        setRecipeName('');
-        setIngredients('');
-        setSteps('');
+        if (ingredients === '') {
+            setShowIngredientsError(true);
+        }
+        if (steps === '') {
+            setShowStepsError(true);
+        }
+        if (!showNameError && !showIngredientsError && !showStepsError) {
+            setShowNameError(false);
+            setShowIngredientsError(false);
+            setShowStepsError(false);
+            const ingredientsAsArray = ingredients.split("\n");
+            const stepsAsArray = steps.split("\n");
+            recipeObject = {
+                name: recipeName,
+                ingredients: ingredientsAsArray,
+                instructions: stepsAsArray
+            }
+            const meals = JSON.parse(localStorage.getItem("meals"));
+            const updatedMeals = [...meals, recipeObject];
+            console.log(updatedMeals);
+            localStorage.setItem("meals", JSON.stringify(updatedMeals));
+            setRecipeName('');
+            setIngredients('');
+            setSteps('');
+        }
     }
 
   return (
@@ -130,17 +160,23 @@ const AddRecipe = () => {
         <InputContainer>
             <UserInput
                 placeholder="Recipe name" 
-                onChange={handleNameChange} />
+                onChange={handleNameChange}
+                isValid={showNameError} />
+            {showNameError && <ErrorMessage>{errorMessage}</ErrorMessage>}
         </InputContainer>
         <InputContainer>
             <UserTextArea
                 placeholder="Ingredients, each one on a new line" 
-                onChange={handleIngredientsChange} />
+                onChange={handleIngredientsChange}
+                isValid={showIngredientsError} />
+            {showIngredientsError && <ErrorMessage>{errorMessage}</ErrorMessage>}
         </InputContainer>
         <InputContainer>
             <UserTextArea
                 placeholder="Recipe steps, each one on a new line" 
-                onChange={handleStepsChange} />
+                onChange={handleStepsChange}
+                isValid={showStepsError} />
+            {showStepsError && <ErrorMessage>{errorMessage}</ErrorMessage>}
         </InputContainer>
         <ButtonWrapper>
             <CreateButton onClick={handleButtonClick}>

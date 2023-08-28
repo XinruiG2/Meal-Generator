@@ -98,7 +98,7 @@
         {
             "name": "Focaccia sandwich",
             "ingredients": ["focaccia bread", "mortadella", "garlic aioli", "pesto", "arugula", "burrata", "salt", "black pepper"],
-            "instructions": ["Toss the arugular in some olive oil and lemon juice.",
+            "instructions": ["Toss the arugula in some olive oil and lemon juice.",
                             "Spread the garlic aioli and pesto on toasted slices of focaccia.",
                             "Add on the mortadella, burrata, salt, pepper, arugula, and serve!"]
         }

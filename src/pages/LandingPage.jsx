@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from 'styled-components'
+import { styled, keyframes } from 'styled-components'
 import FlatText from '../components/LandingPageComponents/FlatText';
 import MainText from '../components/LandingPageComponents/MainText';
 import Triangles from '../components/LandingPageComponents/Triangles';
@@ -7,7 +7,22 @@ import Circle from '../components/LandingPageComponents/Circle';
 import { useNavigate } from 'react-router-dom';
 import mealData from '../resources/meals.json'
 
-const Container = styled.div`
+const fadeIn = keyframes`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`;
+
+const FadeInContainer = styled.div`
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+`;
+
+const Container = styled(FadeInContainer)`
+    animation: ${fadeIn} 1s forwards;
     width: 100vw;
     height: 100vh;
     position: relative;

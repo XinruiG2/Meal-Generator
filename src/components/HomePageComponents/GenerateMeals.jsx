@@ -35,8 +35,8 @@ const ButtonWrapper = styled.div`
 const GenerateMealsButton = styled.button`
     font-family: 'Domine', sans-serif;
     font-size: 0.8rem;
-    letter-spacing: 0.05rem;
-    font-weight: 400;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
     padding: 6.5px 9px;
     border-radius: 5px;
     border: 1px solid gray;

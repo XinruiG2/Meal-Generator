@@ -21,7 +21,10 @@ const UserTextArea = styled.textarea`
     background-color: white;
     border-radius: 3px;
     padding: 11px 10px; 
-    border: none;
+    border: ${props =>
+        props.isValid
+        ? '1.5px solid #D21404'
+        : 'none'};
     line-height: 1.4;
 
     &:focus {
@@ -37,7 +40,7 @@ const GenerateButton = styled.button`
     font-family: 'Domine', sans-serif;
     font-size: 0.8rem;
     letter-spacing: 0.1rem;
-    font-weight: 400;
+    font-weight: 600;
     padding: 6.5px 12px;
     border-radius: 5px;
     border: 1px solid gray;
@@ -51,9 +54,17 @@ const GenerateButton = styled.button`
     }
 `;
 
+const ErrorMessage = styled.div`
+    color: #D21404;
+    font-size: 0.7rem;
+    padding: 0 0 2px 5px;
+`;
+
 const IngredientBased = ({ setMeals }) => {
 
     const [ingredientsToSearchFor, setIngredientsToSearchFor] = useState('');
+    const [showIngredientsError, setShowIngredientsError] = useState(false);
+    const errorMessage = "This is a required field";
 
     const handleIngredientsChange = (event) => {
         const ingredients = event.target.value;
@@ -65,18 +76,23 @@ const IngredientBased = ({ setMeals }) => {
     };
 
     const handleButtonClick = () => {
-        const searchIngredients = ingredientsToSearchFor.split("\n").map(ingredient => ingredient.trim());
-        const meals = JSON.parse(localStorage.getItem("meals"));
+        if (ingredientsToSearchFor === '') {
+            setShowIngredientsError(true);
+        } else {
+            setShowIngredientsError(false);
+            const searchIngredients = ingredientsToSearchFor.split("\n").map(ingredient => ingredient.trim());
+            const meals = JSON.parse(localStorage.getItem("meals"));
 
-        const matchingRecipes = meals.filter(meal =>
-            meal.ingredients.some(ingredient =>
-                searchIngredients.some(searchIngredient =>
-                    customIncludes(ingredient, searchIngredient)
+            const matchingRecipes = meals.filter(meal =>
+                meal.ingredients.some(ingredient =>
+                    searchIngredients.some(searchIngredient =>
+                        customIncludes(ingredient, searchIngredient)
+                    )
                 )
-            )
-        );
+            );
 
-        setMeals(matchingRecipes);
+            setMeals(matchingRecipes);
+        }
     }
 
   return (
@@ -84,7 +100,9 @@ const IngredientBased = ({ setMeals }) => {
         <UserTextArea
             placeholder='Ingredients to include, each separated by a new line ...'
             value={ingredientsToSearchFor}
+            isValid={showIngredientsError}
             onChange={handleIngredientsChange} />
+        {showIngredientsError && <ErrorMessage>{errorMessage}</ErrorMessage>}
         <ButtonWrapper>
             <GenerateButton onClick={handleButtonClick}>
                 Generate
