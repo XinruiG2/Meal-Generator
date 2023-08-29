@@ -145,14 +145,11 @@ const Meal = ({ meal, style }) => {
 
     const isFavoriteMeal = () => {
         const favoriteMeals = JSON.parse(localStorage.getItem("favorites"));
-        console.log(favoriteMeals);
         const isFavorited = favoriteMeals.some(favorite => (
             favorite.name === meal.name &&
             _.isEqual(favorite.ingredients, meal.ingredients) &&
             _.isEqual(favorite.instructions, meal.instructions)
         ));
-        console.log("fav?" + isFavorited);
-        console.log(meal);
         return isFavorited;
     }
 
