@@ -7,8 +7,8 @@ import IngredientBased from './IngredientBased';
 
 const Container = styled.div`
     margin-top: 12px;
-    overflow: hidden;
     width: 100%;
+    padding-bottom: 35px;
 `;
 
 const Banner = styled.div`
@@ -44,7 +44,7 @@ const OpenMe = styled.div`
 const MenuOptions = styled.div`
     margin-top: 12px;
     overflow: hidden;
-    max-height: ${({ isOpen }) => (isOpen ? "130px" : "0")};
+    max-height: ${({ isOpen }) => (isOpen ? "140px" : "0")};
     transition: max-height 0.3s ease-in-out;
 `;
 
