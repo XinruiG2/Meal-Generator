@@ -5,7 +5,7 @@ const Container = styled.div`
     background-color: rgb(252, 251, 244, 0.95);
     border-radius: 5px;
     padding: 30px 10px 28px 10px;
-    margin-top: 14px;
+    margin-top: 13px;
 `;
 
 const UserTextArea = styled.textarea`

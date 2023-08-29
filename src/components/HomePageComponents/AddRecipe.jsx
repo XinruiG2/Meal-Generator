@@ -6,7 +6,7 @@ const Container = styled.div`
     border-radius: 3px;
     padding: 20px 10px;
     padding-bottom: 14px;
-    margin-top: 14px;
+    margin-top: 13px;
 `;
 
 const Header = styled.div`
@@ -147,7 +147,6 @@ const AddRecipe = () => {
             }
             const meals = JSON.parse(localStorage.getItem("meals"));
             const updatedMeals = [...meals, recipeObject];
-            console.log(updatedMeals);
             localStorage.setItem("meals", JSON.stringify(updatedMeals));
             setRecipeName('');
             setIngredients('');

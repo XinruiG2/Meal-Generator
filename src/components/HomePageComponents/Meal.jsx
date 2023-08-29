@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { styled, keyframes } from 'styled-components'
 import Ingredients from './Ingredients';
 import Instructions from './Instructions';
-import { Minimize } from '@mui/icons-material';
+import { Minimize, Star } from '@mui/icons-material';
 
 const Container = styled.div`
     width: 100%;
@@ -67,12 +67,33 @@ const Banner = styled.div`
     height: 35px;
     background-color: ${(props) => props.option};
     border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
 `;
 
 const MinimizeButton = styled(Minimize)`
     font-size: 1.35rem !important;
     margin-left: 7px;
     fill: rgb(70, 70, 70) !important;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+const FavoriteWrapper = styled.div`
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+`;
+
+const FavoriteButton = styled(Star)`
+    font-size: 1.17rem !important;
+    fill: ${(props) => (props.favorited ? 'rgb(109,165,200)' : 'rgb(190,190,190)')} !important;
+    margin-right: 9px;
+    margin-top: 1px;
 
     &:hover {
         cursor: pointer;
@@ -101,7 +122,7 @@ const InstructionsWrapper = styled.div``;
 const Meal = ({ meal, style }) => {
 
     const [showMore, setShowMore] = useState(false);
-    const [downArrow, setDownArrow] = useState(true);
+    const [favorited, setFavorited] = useState(false);
 
     let textColor;
 
@@ -117,6 +138,25 @@ const Meal = ({ meal, style }) => {
         setShowMore(!showMore);
     }
 
+    const favoriteMeal = () => {
+        setFavorited(!favorited);
+        const favoriteMeals = JSON.parse(localStorage.getItem("favorites"));
+        
+        if (!favorited) {
+            const updatedFavorites = [...favoriteMeals, meal];
+            localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+        } else {
+            const updatedFavorites = favoriteMeals.filter(favorite => (
+                favorite.name !== meal.name ||
+                JSON.stringify(favorite.ingredients) !== JSON.stringify(meal.ingredients) ||
+                JSON.stringify(favorite.instructions) !== JSON.stringify(meal.instructions)
+              ));
+            localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+        }
+
+        console.log(JSON.parse(localStorage.getItem("favorites")));
+    }
+
     const mealName = meal.name.toUpperCase();
 
   return (
@@ -127,6 +167,11 @@ const Meal = ({ meal, style }) => {
         {showMore && <RecipeExpanded>
                 <Banner option={textColor}>
                     <MinimizeButton onClick={changeRecipeVisibility}/>
+                    <FavoriteWrapper>
+                        <FavoriteButton 
+                            favorited={favorited}
+                            onClick={favoriteMeal} />
+                    </FavoriteWrapper>
                 </Banner>
                 <MainContent>
                     <IngredientsWrapper>

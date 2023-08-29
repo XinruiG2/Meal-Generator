@@ -40,9 +40,6 @@ const Home = () => {
       <RightBlock></RightBlock>
       <MainContainer setMeal={setSelectedMeal}></MainContainer>
       <MealCards selectedMeal={selectedMeal}></MealCards>
-        {/* <Header></Header>
-        <MainContainer setMeal={setSelectedMeal}></MainContainer>
-        <MealCards selectedMeal={selectedMeal}></MealCards> */}
     </Container>
   )
 }

@@ -44,7 +44,7 @@ const OpenMe = styled.div`
 const MenuOptions = styled.div`
     margin-top: 12px;
     overflow: hidden;
-    max-height: ${({ isOpen }) => (isOpen ? "100px" : "0")};
+    max-height: ${({ isOpen }) => (isOpen ? "130px" : "0")};
     transition: max-height 0.3s ease-in-out;
 `;
 
@@ -73,7 +73,7 @@ const AboutOption = styled.div`
 `;
 
 const AboutWrapper = styled.div`
-    margin-top: 28px;
+    margin-top: 29px;
 `;
 
 const AboutHeader = styled.div`
@@ -92,6 +92,7 @@ const NavBar = ({ setMeals }) => {
     const [showGenerateMeals, setShowGenerateMeals] = useState(false);
     const [showAddRecipe, setShowAddRecipe] = useState(false);
     const [showIngredientBased, setShowIngredientBased] = useState(false);
+    const [showFavorites, setShowFavorites] = useState(false);
     
     const handleClick = () => {
         setExpanded(!expanded);
@@ -102,6 +103,7 @@ const NavBar = ({ setMeals }) => {
         setShowGenerateMeals(true);
         setShowAddRecipe(false);
         setShowIngredientBased(false);
+        setShowFavorites(false);
     }
 
     const handleAddRecipeClick = () => {
@@ -109,6 +111,7 @@ const NavBar = ({ setMeals }) => {
         setShowGenerateMeals(false);
         setShowAddRecipe(true);
         setShowIngredientBased(false);
+        setShowFavorites(false);
     }
 
     const handleIngredientBasedClick = () => {
@@ -116,6 +119,16 @@ const NavBar = ({ setMeals }) => {
         setShowGenerateMeals(false);
         setShowAddRecipe(false);
         setShowIngredientBased(true);
+        setShowFavorites(false);
+    }
+
+    const handleFavoritesClick = () => {
+        setExpanded(false);
+        setShowGenerateMeals(false);
+        setShowAddRecipe(false);
+        setShowIngredientBased(false);
+        setShowFavorites(true);
+        setMeals(JSON.parse(localStorage.getItem("favorites")));
     }
 
   return (
@@ -128,6 +141,7 @@ const NavBar = ({ setMeals }) => {
             <MenuOption onClick={handleGenerateMealClick}>Generate meals</MenuOption>
             <MenuOption onClick={handleAddRecipeClick}>Add a recipe</MenuOption>
             <MenuOption onClick={handleIngredientBasedClick}>Ingredient based</MenuOption>
+            <MenuOption onClick={handleFavoritesClick}>Favorites</MenuOption>
         </MenuOptions>
         {showGenerateMeals && <GenerateMeals setMeals={setMeals}></GenerateMeals>}
         {showGenerateMeals && 
@@ -154,6 +168,13 @@ const NavBar = ({ setMeals }) => {
             <AboutOption>This selection allows you to search for recipes that contain at least one of the listed
                 ingredients. Please note that the search method does not account for plural vs singular so entering
                 egg will not generate recipes that contain the keyword 'eggs'.
+            </AboutOption>
+        </AboutWrapper>}
+        {showFavorites && 
+        <AboutWrapper>
+            <AboutHeader>About 'Favorites':</AboutHeader>
+            <AboutOption>Where you can easily find all of the recipes you already know and love! 
+                A favorited recipe is indicated by a blue star at the top of a meal card.
             </AboutOption>
         </AboutWrapper>}
     </Container>

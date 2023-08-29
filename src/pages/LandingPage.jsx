@@ -36,6 +36,7 @@ const LandingPage = () => {
   const navigateToMain = () => {
     const meals = mealData.meals;
     localStorage.setItem("meals", JSON.stringify(meals));
+    localStorage.setItem("favorites", JSON.stringify([]));
     navigate("/home");
   }
 
