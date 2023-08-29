@@ -36,6 +36,10 @@ const RecipeName = styled.div`
         letter-spacing: -0.05rem;
         background-position: left;
     }
+
+    @media (max-width: 1000px) {
+        background: linear-gradient(to left, rgb(51,92,129) 50%, rgb(170, 170, 170, 0.35) 50%) right;
+    }
 `;
 
 const expand = keyframes`

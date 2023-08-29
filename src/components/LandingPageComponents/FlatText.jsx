@@ -47,12 +47,21 @@ const Text = styled.div`
         cursor: pointer;
         background-position: left;
       }
+
+      @media (max-width: 1000px) {
+        margin-top: -3rem;
+        margin-left: 16rem;
+        padding: 0.5rem 300px 1.5rem 300px;
+      }
 `;
 
 const FlatText = () => {
+
+  const notDesktopView = window.innerWidth <= 1000;
+
   return (
     <Container>
-        <Text>Homemade Meals</Text>
+        <Text>Homemade{notDesktopView && <br />}Meals</Text>
     </Container>
   )
 }

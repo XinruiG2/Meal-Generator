@@ -30,6 +30,13 @@ const Container = styled(FadeInContainer)`
         width: 0px;
         background-color: transparent;
     }
+
+    @media (max-width: 1000px) {
+        position: static;
+        background-color: rgb(51,92,129);
+        width: 100vw;
+        height: fit-content;
+    }
 `;
 
 const ContentWrapper = styled.div`
@@ -41,6 +48,10 @@ const ContentWrapper = styled.div`
     align-items: start;
     box-sizing: border-box;
     padding: 45px 35px;
+
+    @media (max-width: 1000px) {
+        width: 90%;
+    }
 `;
 
 const ChooseButton = styled.button`
@@ -98,12 +109,14 @@ const OpenMe = styled.div`
 `;
 
 const MainContainer = ({ setMeal }) => {
+
+    const isDesktopView = window.innerWidth > 1000;
+
   return (
     <Container>
         <ContentWrapper>
-            {/* <ChooseButton onClick={selectMeal}>GENERATE</ChooseButton> */}
             <RecipeDescriptions>
-                A collection of<br /> 
+                A collection of{isDesktopView && <br />} 
                 recipes dear to me .
             </RecipeDescriptions>
             <NavBar setMeals={setMeal}></NavBar>

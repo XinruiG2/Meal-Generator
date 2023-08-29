@@ -9,6 +9,10 @@ const Container = styled.div`
     margin-top: 12px;
     width: 100%;
     padding-bottom: 35px;
+
+    @media (max-width: 1000px) {
+        padding-bottom: 0;
+    }
 `;
 
 const Banner = styled.div`

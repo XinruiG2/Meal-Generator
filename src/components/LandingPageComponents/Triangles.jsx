@@ -12,6 +12,11 @@ const LeftBlock = styled.div`
     background-color: rgb(182, 206, 227, 0.75);
     z-index: -1;
     border-right: 30px solid rgb(105,141,166);
+
+    @media (max-width: 1000px) {
+      width: 290px;
+      left: 24.5%;
+    }
 `;
 
 const MiddleBlock = styled.div`
@@ -24,6 +29,11 @@ const MiddleBlock = styled.div`
     background-color: rgb(182, 206, 227, 0.75);
     z-index: -1;
     border-right: 30px solid rgb(105,141,166);
+
+    @media (max-width: 1000px) {
+      width: 265px;
+      left: 63%;
+    }
 `;
 
 const RightBlock = styled.div`
@@ -39,11 +49,14 @@ const RightBlock = styled.div`
 `;
 
 const Triangles = () => {
+
+  const isDesktopView = window.innerWidth > 1000;
+
   return (
     <Container>
         <LeftBlock></LeftBlock>
         <MiddleBlock></MiddleBlock>
-        <RightBlock></RightBlock>
+        {isDesktopView && <RightBlock></RightBlock>}
     </Container>
   )
 }

@@ -33,11 +33,12 @@ const RightBlock = styled.div`
 const Home = () => {
 
   const [selectedMeal, setSelectedMeal] = useState([]);
+  const isDesktopView = window.innerWidth > 1000;
 
   return (
     <Container>
-      <LeftBlock></LeftBlock>
-      <RightBlock></RightBlock>
+      {isDesktopView && <LeftBlock></LeftBlock>}
+      {isDesktopView && <RightBlock></RightBlock>}
       <MainContainer setMeal={setSelectedMeal}></MainContainer>
       <MealCards selectedMeal={selectedMeal}></MealCards>
     </Container>

@@ -21,6 +21,15 @@ const Container = styled.div`
       width: 0px;
       background-color: transparent;
     }
+
+    @media (max-width: 1000px) {
+      position: static;
+      background-color: rgb(51,92,129);
+      width: 100vw;
+      height: 100%;
+      padding: 48px 35px;
+      border-top: 2px solid rgb(255, 255, 255, 0.4);
+    }
 `;
 
 const MealCards = ({ selectedMeal }) => {
