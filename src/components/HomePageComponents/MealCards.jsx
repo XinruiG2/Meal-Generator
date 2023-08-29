@@ -33,6 +33,11 @@ const Container = styled.div`
 `;
 
 const MealCards = ({ selectedMeal }) => {
+
+  console.log(selectedMeal);
+  const favoriteMeals = JSON.parse(localStorage.getItem("favorites"));
+  console.log(favoriteMeals);
+
   return (
     <Container>
         {selectedMeal.map((element, index) => (

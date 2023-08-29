@@ -72,7 +72,6 @@ const GenerateMeals = ({ setMeals }) => {
 
     const handleButtonClick = () => {
         const meals = JSON.parse(localStorage.getItem("meals"));
-        console.log(meals);
         const intValue = parseInt(numberOfMeals);
 
         if (numberOfMeals === '') {

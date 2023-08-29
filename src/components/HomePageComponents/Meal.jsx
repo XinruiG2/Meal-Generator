@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { styled, keyframes } from 'styled-components'
 import Ingredients from './Ingredients';
 import Instructions from './Instructions';
 import { Minimize, Star } from '@mui/icons-material';
+import _ from 'lodash';
 
 const Container = styled.div`
     width: 100%;
@@ -95,7 +96,7 @@ const FavoriteWrapper = styled.div`
 
 const FavoriteButton = styled(Star)`
     font-size: 1.17rem !important;
-    fill: ${(props) => (props.favorited ? 'rgb(109,165,200)' : 'rgb(190,190,190)')} !important;
+    fill: ${(props) => (props.favorited ? 'rgb(0,128,254,0.95)' : 'rgb(190,190,190)')} !important;
     margin-right: 9px;
     margin-top: 1px;
 
@@ -132,7 +133,7 @@ const Meal = ({ meal, style }) => {
 
     if (style === 0) {
         textColor = "rgb(245, 245, 245)";
-    } else if (style == 1) {
+    } else if (style === 1) {
         textColor = "black";
     } else {
         textColor = "rgb(89,154,195)";
@@ -141,6 +142,23 @@ const Meal = ({ meal, style }) => {
     const changeRecipeVisibility = () => {
         setShowMore(!showMore);
     }
+
+    const isFavoriteMeal = () => {
+        const favoriteMeals = JSON.parse(localStorage.getItem("favorites"));
+        console.log(favoriteMeals);
+        const isFavorited = favoriteMeals.some(favorite => (
+            favorite.name === meal.name &&
+            _.isEqual(favorite.ingredients, meal.ingredients) &&
+            _.isEqual(favorite.instructions, meal.instructions)
+        ));
+        console.log("fav?" + isFavorited);
+        console.log(meal);
+        return isFavorited;
+    }
+
+    useEffect(() => {
+        setFavorited(isFavoriteMeal());
+    }, [showMore]);
 
     const favoriteMeal = () => {
         setFavorited(!favorited);
